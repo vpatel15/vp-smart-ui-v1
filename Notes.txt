@@ -1,0 +1,68 @@
+// create a new React project with the TypeScript template    
+npx create-react-app smart-ui --template typescript
+
+
+Or 
+
+
+Create from scratch
+
+Principles:
+Single responsibility principle (SRP): Each component should have a single responsibility. Avoid creating monolithic components that handle too many tasks. This principle promotes reusability and makes components easier to understand and maintain
+Separation of concerns: Separation of concerns is the principle of dividing a program into distinct sections, each addressing a specific functionality aspect. When designing a component library, we should consider separate concerns such as logic, styling, and presentation
+
+
+Naming conventions:
+Use PascalCase: Adopt PascalCase for naming our component class and file names. This convention capitalizes the first letter of each word, and there are no spaces or underscores
+Prefix for uniqueness: We will add a prefix to the component names to ensure uniqueness, especially if the library might be used in projects alongside other libraries
+Prefer full words: We will use full words instead of acronyms to avoid ambiguous meanings
+
+// Install react typescript @types/react tslib 
+npm i react typescript @types/react tslib --save-dev
+
+// Create tsconfig
+npx tsc -init
+
+// Install rollup
+npm install rollup @rollup/plugin-node-resolve @rollup/plugin-commonjs @rollup/plugin-typescript rollup-plugin-peer-deps-external @rollup/plugin-terser rollup-plugin-dts --save-dev
+
+Add rollup.config.js
+
+// Add support for css in rollup
+npm install rollup-plugin-postcss --save-dev
+
+Modify rollup.config.js
+
+// Add storybook
+npx sb init
+
+// install Jest and testing-library
+npm install @testing-library/react jest @types/jest jest-environment-jsdom --save-dev
+
+// install babel and its related plugins
+npm install @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript babel-jest --save-dev
+
+// We also install identity-obj-proxy, which allows Jest to treat all types of imports (CSS, LESS, and SCSS) as generic objects. Specifically, we can configure it for CSS files to prevent any errors in testing.
+allowing them to be mocked without actual styling
+npm install identity-obj-proxy -save-dev
+
+Create jest.config.js and babel.config.js
+
+Create SmartRating.test.tsx
+
+
+Semantic Versioning (SemVer) is a versioning convention for software that uses three numbers (major, minor, patch) to communicate the nature of changes:
+
+major for backward-incompatible
+minor for backward-compatible additions
+patch for backward-compatible bug fixes
+
+
+Publishing:
+
+npm login
+
+npm publish --access public
+
+// Verify after publishing
+npm view vp-smart-ui-v1
